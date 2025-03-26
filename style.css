@@ -1,0 +1,193 @@
+/* Efek animasi */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Gaya slide */
+.slide {
+  min-width: 100vw;
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+.slide-content {
+  background: rgba(183, 173, 173, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  max-width: 1200px;
+  width: 90%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Progress indicator */
+.progress-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  cursor: pointer;
+  position: relative;
+}
+
+.progress-dot.active {
+  background: white;
+  transform: scale(1.5);
+}
+
+.progress-dot.active::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border: 1px solid white;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Team member cards */
+.team-card {
+  transition: all 0.3s ease;
+  transform: perspective(1000px) rotateY(0deg);
+}
+
+.team-card:hover {
+  transform: perspective(1000px) rotateY(5deg) scale(1.03);
+}
+
+.team-avatar {
+  border: 3px solid rgb(33, 91, 12);
+  box-shadow: 0 5px 15px rgba(122, 9, 9, 0.1);
+}
+
+/* Timeline styling */
+.timeline-item {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, #f59e0b, #ef4444);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -8px;
+  top: 5px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #f59e0b;
+  border: 3px solid white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slide-content {
+    padding: 1.5rem;
+    width: 95%;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Hidden utility */
+.hidden {
+  display: none !important;
+}
+
+@keyframes pan-image {
+  0% {
+    background-position: 36% 42%;
+  }
+  50% {
+    background-position: 57% 58%;
+  }
+  100% {
+    background-position: 36% 42%;
+  }
+}
+
+/* Hapus scrollbar horizontal */
+body,
+#slide-container {
+  overflow-x: hidden !important;
+}
+
+/* Untuk browser WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Untuk Firefox */
+html {
+  scrollbar-width: none;
+}
