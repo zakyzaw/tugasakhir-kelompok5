@@ -423,7 +423,6 @@ function scrollToStage() {
     });
   }
 
-  // Update stage indicator
   document.getElementById("stage-indicator").textContent = `${
     currentStage + 1
   } / ${stages.length}`;
