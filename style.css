@@ -26,7 +26,20 @@ body {
     transform: translateY(0px);
   }
 }
-
+/* Style dasar tombol navigasi */
+.nav-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
 .animate-fadeIn {
   animation: fadeIn 0.6s ease-out;
 }
@@ -422,4 +435,29 @@ body {
 #btnVideo {
   top: 6rem;
   left: 1.2rem;
+}
+
+.nav-button:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+/* Warna ikon khusus untuk tombol video */
+#btnVideo:hover i {
+  color: #3b82f6; /* Biru saat hover */
+}
+
+/* Untuk desktop */
+@media (min-width: 100px) {
+  #btnVideo {
+    left: 80px; /* Jarak dari tombol beranda */
+  }
+}
+
+/* Untuk mobile */
+@media (max-width: 768px) {
+  #btnVideo {
+    top: 80px;
+    left: 20px;
+  }
 }

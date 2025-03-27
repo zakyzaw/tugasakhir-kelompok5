@@ -320,7 +320,7 @@ function goHome() {
   document.getElementById("btnHome").classList.add("hidden");
   document.getElementById("navigation-buttons").classList.add("hidden");
   document.getElementById("progress-container").classList.add("hidden");
-  document.getElementById("btnVideo").classList.add("hidden");
+  document.getElementById("btnVideo").classList.add();
   currentStage = 0;
 }
 
