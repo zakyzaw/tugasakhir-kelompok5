@@ -49,7 +49,7 @@ const stages = [
           </div>
         </div>
         <div class="space-y-4">
-          <img src="assets/alatdulu.jpg" alt="Pertanian Awal" class="rounded-lg shadow-md">
+          <img src="assets/alatdulu.jpg" alt="Pertanian Awal" class="rounded-lg shadow-md animate-float">
           <p class="text-gray-600 text-center text-sm"><i>Pengolahan tanah dengan alat primitif</i></p>
         </div>
       </div>
@@ -63,17 +63,17 @@ const stages = [
     description: `
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-          <img src="assets/piramid.jpg" alt="Piramida" class="w-full h-32 object-cover rounded mb-2">
+          <img src="assets/piramid.jpg" alt="Piramida" class="w-full h-32 object-cover rounded mb-2 animate-float">
           <h3 class="font-bold text-gray-800 mb-1">Mesir Kuno</h3>
           <p class="text-sm text-gray-600">Membangun piramida, mengembangkan sistem tulisan hieroglif, dan kemajuan dalam matematika.</p>
         </div>
         <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-          <img src="assets/mesopotamia.jpg" alt="Mesopotamia" class="w-full h-32 object-cover rounded mb-2">
+          <img src="assets/mesopotamia.jpg" alt="Mesopotamia" class="w-full h-32 object-cover rounded mb-2 animate-float">
           <h3 class="font-bold text-gray-800 mb-1">Mesopotamia</h3>
           <p class="text-sm text-gray-600">Penemu roda, sistem hukum pertama (Hammurabi), dan tulisan kuneiform.</p>
         </div>
         <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-          <img src="assets/lembahindus.jpg" alt="Lembah Indus" class="w-full h-32 object-cover rounded mb-2">
+          <img src="assets/lembahindus.jpg" alt="Lembah Indus" class="w-full h-32 object-cover rounded mb-2 animate-float">
           <h3 class="font-bold text-gray-800 mb-1">Lembah Indus</h3>
           <p class="text-sm text-gray-600">Perencanaan kota canggih dengan sistem drainase dan sanitasi.</p>
         </div>
@@ -105,7 +105,7 @@ const stages = [
           </div>
         </div>
         <div class="flex-1">
-          <img src="assets/parthenon.jpg" alt="Parthenon" class="rounded-lg shadow-md w-full h-auto">
+          <img src="assets/parthenon.jpg" alt="Parthenon" class="rounded-lg shadow-md w-full h-auto animate-float">
           <p class="text-gray-600 text-center text-sm mt-2"><i>Parthenon, simbol kejayaan Yunani Kuno</i></p>
         </div>
       </div>
@@ -151,7 +151,7 @@ const stages = [
           </div>
         </div>
         <div>
-          <img src="assets/katedral.jpg" alt="Katedral Gothic" class="rounded-lg shadow-md w-full h-full object-cover">
+          <img src="assets/katedral.jpg" alt="Katedral Gothic" class="rounded-lg shadow-md w-full h-full object-cover animate-float">
         </div>
       </div>
     `,
@@ -164,7 +164,7 @@ const stages = [
     description: `
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div>
-          <img src="assets/mesinuap.jpg" alt="Mesin Uap" class="rounded-lg shadow-md w-full">
+          <img src="assets/mesinuap.jpg" alt="Mesin Uap" class="rounded-lg shadow-md w-full animate-float">
         </div>
         <div>
           <p class="text-gray-700 mb-4">Munculnya mesin dan pabrik mengubah cara manusia bekerja dan hidup. Produksi massal menjadi mungkin, transportasi berkembang pesat, dan urbanisasi terjadi secara besar-besaran.</p>
@@ -244,18 +244,18 @@ const stages = [
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="team-card bg-white rounded-xl shadow-md overflow-hidden p-6 text-center">
           <div class="team-avatar w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden border-4 border-amber-100">
-            <img src="assets/zaky.jpg" alt="Team Member 1" class="w-full h-full object-cover">
+            <img src="assets/zaky.jpg" alt="zaky" class="w-full h-full object-cover ">
           </div>
           <h3 class="text-xl font-bold text-gray-800 mb-1">Zaky Zaidan Akmal Wahyudi</h3>
           <p class="text-amber-600 font-medium mb-2">2305176057</p>
           <p class="text-gray-600 text-sm">Tenggarong</p>
-          <div class="flex justify-center space-x-3 mt-4">
+          <div class="flex justify-center space-x-3 mt-4 ">
           </div>
         </div>
         
         <div class="team-card bg-white rounded-xl shadow-md overflow-hidden p-6 text-center">
           <div class="team-avatar w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden border-4 border-amber-100">
-            <img src="assets/nuril.JPG" alt="Team Member 2" class="w-full h-full object-cover">
+            <img src="assets/nuril.JPG" alt="nuril" class="w-full h-full object-cover">
           </div>
           <h3 class="text-xl font-bold text-gray-800 mb-1">Nuril Rahmadian Hidayat</h3>
           <p class="text-amber-600 font-medium mb-2">2305176058</p>
@@ -266,7 +266,7 @@ const stages = [
         
         <div class="team-card bg-white rounded-xl shadow-md overflow-hidden p-6 text-center">
           <div class="team-avatar w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden border-4 border-amber-100">
-            <img src="assets/daru.JPG" alt="Team Member 3" class="w-full h-full object-cover">
+            <img src="assets/daru.JPG" alt="daru" class="w-full h-full object-cover">
           </div>
           <h3 class="text-xl font-bold text-gray-800 mb-1">Raden Handaru Nugraha Samudera</h3>
           <p class="text-amber-600 font-medium mb-2">2305176051</p>
@@ -277,7 +277,7 @@ const stages = [
         
         <div class="team-card bg-white rounded-xl shadow-md overflow-hidden p-6 text-center">
           <div class="team-avatar w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden border-4 border-amber-100">
-            <img src="assets/gading.JPG" alt="Team Member 4" class="w-full h-full object-cover">
+            <img src="assets/gading.JPG" alt="gading" class="w-full h-full object-cover">
           </div>
           <h3 class="text-xl font-bold text-gray-800 mb-1">Gading Azmi Marpaung</h3>
           <p class="text-amber-600 font-medium mb-2">2305176044</p>
@@ -485,4 +485,86 @@ document.addEventListener("DOMContentLoaded", () => {
       prevStage();
     }
   }
+});
+
+// Di bagian event listener touch, perbaiki sensitivitas swipe
+let touchStartX = 0;
+let touchEndX = 0;
+const swipeThreshold = 30; // Jarak minimal untuk dianggap sebagai swipe
+
+document.getElementById("slide-container").addEventListener(
+  "touchstart",
+  (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  },
+  false
+);
+
+document.getElementById("slide-container").addEventListener(
+  "touchend",
+  (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  },
+  false
+);
+
+function handleSwipe() {
+  const deltaX = touchEndX - touchStartX;
+
+  if (deltaX < -swipeThreshold) {
+    nextStage(); // Swipe ke kiri
+  } else if (deltaX > swipeThreshold) {
+    prevStage(); // Swipe ke kanan
+  }
+}
+
+function adjustSlideHeights() {
+  if (window.innerWidth <= 768) {
+    const slides = document.querySelectorAll(".slide");
+    slides.forEach((slide) => {
+      const content = slide.querySelector(".slide-content");
+      if (content) {
+        // Set tinggi slide berdasarkan konten + padding
+        slide.style.height = `${content.offsetHeight + 100}px`;
+      }
+    });
+  }
+}
+
+// Panggil fungsi saat resize dan setelah render
+window.addEventListener("resize", adjustSlideHeights);
+document.addEventListener("DOMContentLoaded", () => {
+  renderStages();
+  adjustSlideHeights();
+});
+
+function toggleMusic() {
+  if (bgMusic.paused) {
+    bgMusic.play();
+    bgMusic.volume = 0.05; // Tetap 5% saat di-play
+    document.getElementById("musicToggle").innerHTML =
+      '<i class="fas fa-volume-up text-gray-700 group-hover:text-amber-600"></i>';
+  } else {
+    bgMusic.pause();
+    document.getElementById("musicToggle").innerHTML =
+      '<i class="fas fa-volume-mute text-gray-700 group-hover:text-amber-600"></i>';
+  }
+}
+document.addEventListener("DOMContentLoaded", () => {
+  // ... kode lainnya
+
+  bgMusic.volume = 0.2;
+
+  const enableAudio = () => {
+    bgMusic.muted = false;
+    bgMusic.volume = 0.2; //
+    document.removeEventListener("click", enableAudio);
+    document.removeEventListener("keydown", enableAudio);
+    document.removeEventListener("touchstart", enableAudio);
+  };
+
+  document.addEventListener("click", enableAudio);
+  document.addEventListener("keydown", enableAudio);
+  document.addEventListener("touchstart", enableAudio);
 });
