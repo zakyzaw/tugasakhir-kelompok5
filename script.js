@@ -299,12 +299,17 @@ let currentStage = 0;
 let isMusicPlaying = false;
 const bgMusic = document.getElementById("bgMusic");
 
+// Initialize music volume
+bgMusic.volume = 0.2;
+
+// Main functions
 function startJourney() {
   document.getElementById("beranda").classList.add("hidden");
   document.getElementById("slide-container").classList.remove("hidden");
   document.getElementById("btnHome").classList.remove("hidden");
   document.getElementById("navigation-buttons").classList.remove("hidden");
   document.getElementById("progress-container").classList.remove("hidden");
+  document.getElementById("btnVideo").classList.remove("hidden");
   renderProgressDots();
   scrollToStage();
 }
@@ -315,27 +320,34 @@ function goHome() {
   document.getElementById("btnHome").classList.add("hidden");
   document.getElementById("navigation-buttons").classList.add("hidden");
   document.getElementById("progress-container").classList.add("hidden");
+  document.getElementById("btnVideo").classList.add("hidden");
   currentStage = 0;
 }
 
+// Video modal functions
+function showVideo() {
+  document.getElementById("videoModal").classList.remove("hidden");
+}
+
+function closeVideo() {
+  document.getElementById("videoModal").classList.add("hidden");
+}
+
+// Music control
 function toggleMusic() {
-  const musicToggle = document.getElementById("musicToggle");
-  if (isMusicPlaying) {
-    bgMusic.pause();
-    musicToggle.innerHTML =
-      '<i class="fas fa-volume-mute text-gray-700 group-hover:text-amber-600"></i>';
-  } else {
+  if (bgMusic.paused) {
     bgMusic.play();
-    musicToggle.innerHTML =
+    document.getElementById("musicToggle").innerHTML =
       '<i class="fas fa-volume-up text-gray-700 group-hover:text-amber-600"></i>';
+  } else {
+    bgMusic.pause();
+    document.getElementById("musicToggle").innerHTML =
+      '<i class="fas fa-volume-mute text-gray-700 group-hover:text-amber-600"></i>';
   }
   isMusicPlaying = !isMusicPlaying;
 }
 
-function closePopup() {
-  document.getElementById("popup").classList.add("hidden");
-}
-
+// Slide rendering
 function renderStages() {
   const container = document.getElementById("slide-container");
   container.innerHTML = "";
@@ -353,24 +365,24 @@ function renderStages() {
         ${
           stage.image
             ? `
-        <div class="flex flex-col md:flex-row items-center gap-8">
-          <div class="flex-1">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 font-serif mb-2">${
-              stage.title
-            }</h2>
-            ${
-              stage.year
-                ? `<p class="text-lg text-amber-600 italic mb-4">${stage.year}</p>`
-                : ""
-            }
-            ${stage.description}
-          </div>
-          <div class="flex-1 flex justify-center">
-            <img src="${stage.image}" alt="${
+          <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="flex-1">
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-800 font-serif mb-2">${
+                stage.title
+              }</h2>
+              ${
+                stage.year
+                  ? `<p class="text-lg text-amber-600 italic mb-4">${stage.year}</p>`
+                  : ""
+              }
+              ${stage.description}
+            </div>
+            <div class="flex-1 flex justify-center">
+              <img src="${stage.image}" alt="${
                 stage.title
               }" class="max-h-96 rounded-lg shadow-lg object-contain">
+            </div>
           </div>
-        </div>
         `
             : stage.description
         }
@@ -380,6 +392,7 @@ function renderStages() {
   });
 }
 
+// Progress dots
 function renderProgressDots() {
   const container = document.getElementById("progress-container");
   container.innerHTML = "";
@@ -403,14 +416,11 @@ function renderProgressDots() {
 function updateProgressDots() {
   const dots = document.querySelectorAll(".progress-dot");
   dots.forEach((dot, index) => {
-    if (index === currentStage) {
-      dot.classList.add("active");
-    } else {
-      dot.classList.remove("active");
-    }
+    dot.classList.toggle("active", index === currentStage);
   });
 }
 
+// Navigation
 function scrollToStage() {
   const container = document.getElementById("slide-container");
   const slides = container.querySelectorAll(".slide");
@@ -443,122 +453,38 @@ function prevStage() {
   }
 }
 
-// Initialize
-document.addEventListener("DOMContentLoaded", () => {
-  renderStages();
-
-  // Keyboard navigation
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight") {
-      nextStage();
-    } else if (e.key === "ArrowLeft") {
-      prevStage();
-    }
-  });
-
-  // Touch/swipe support for mobile
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  document.getElementById("slide-container").addEventListener(
-    "touchstart",
-    (e) => {
-      touchStartX = e.changedTouches[0].screenX;
-    },
-    false
-  );
-
-  document.getElementById("slide-container").addEventListener(
-    "touchend",
-    (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-    },
-    false
-  );
-
-  function handleSwipe() {
-    if (touchEndX < touchStartX - 50) {
-      nextStage();
-    }
-    if (touchEndX > touchStartX + 50) {
-      prevStage();
-    }
-  }
-});
-
-// Di bagian event listener touch, perbaiki sensitivitas swipe
+// Touch/swipe support
 let touchStartX = 0;
 let touchEndX = 0;
-const swipeThreshold = 30; // Jarak minimal untuk dianggap sebagai swipe
-
-document.getElementById("slide-container").addEventListener(
-  "touchstart",
-  (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  },
-  false
-);
-
-document.getElementById("slide-container").addEventListener(
-  "touchend",
-  (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  },
-  false
-);
+const swipeThreshold = 30;
 
 function handleSwipe() {
   const deltaX = touchEndX - touchStartX;
-
-  if (deltaX < -swipeThreshold) {
-    nextStage(); // Swipe ke kiri
-  } else if (deltaX > swipeThreshold) {
-    prevStage(); // Swipe ke kanan
-  }
+  if (deltaX < -swipeThreshold) nextStage();
+  if (deltaX > swipeThreshold) prevStage();
 }
 
+// Mobile height adjustment
 function adjustSlideHeights() {
   if (window.innerWidth <= 768) {
     const slides = document.querySelectorAll(".slide");
     slides.forEach((slide) => {
       const content = slide.querySelector(".slide-content");
       if (content) {
-        // Set tinggi slide berdasarkan konten + padding
         slide.style.height = `${content.offsetHeight + 100}px`;
       }
     });
   }
 }
 
-// Panggil fungsi saat resize dan setelah render
-window.addEventListener("resize", adjustSlideHeights);
+// Initialize
 document.addEventListener("DOMContentLoaded", () => {
   renderStages();
   adjustSlideHeights();
-});
 
-function toggleMusic() {
-  if (bgMusic.paused) {
-    bgMusic.play();
-    bgMusic.volume = 0.05; // Tetap 5% saat di-play
-    document.getElementById("musicToggle").innerHTML =
-      '<i class="fas fa-volume-up text-gray-700 group-hover:text-amber-600"></i>';
-  } else {
-    bgMusic.pause();
-    document.getElementById("musicToggle").innerHTML =
-      '<i class="fas fa-volume-mute text-gray-700 group-hover:text-amber-600"></i>';
-  }
-}
-document.addEventListener("DOMContentLoaded", () => {
-  // ... kode lainnya
-
-  bgMusic.volume = 0.2;
-
+  // Enable audio after interaction
   const enableAudio = () => {
     bgMusic.muted = false;
-    bgMusic.volume = 0.2; //
     document.removeEventListener("click", enableAudio);
     document.removeEventListener("keydown", enableAudio);
     document.removeEventListener("touchstart", enableAudio);
@@ -567,4 +493,39 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("click", enableAudio);
   document.addEventListener("keydown", enableAudio);
   document.addEventListener("touchstart", enableAudio);
+
+  // Keyboard navigation
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") nextStage();
+    else if (e.key === "ArrowLeft") prevStage();
+  });
+
+  // Touch events
+  const slideContainer = document.getElementById("slide-container");
+  slideContainer.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    },
+    false
+  );
+
+  slideContainer.addEventListener(
+    "touchend",
+    (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    },
+    false
+  );
+});
+
+// Window resize handler
+window.addEventListener("resize", adjustSlideHeights);
+
+// Close video when clicking outside
+window.addEventListener("click", (e) => {
+  if (e.target === document.getElementById("videoModal")) {
+    closeVideo();
+  }
 });

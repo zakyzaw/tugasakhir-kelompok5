@@ -43,10 +43,7 @@
         >
           Mulai Eksplorasi <i class="fas fa-arrow-right ml-2"></i>
         </button>
-      </div>
-      <div class="absolute bottom-10 text-gray-500 animate-bounce">
-        <i class="fas fa-chevron-down text-2xl"></i>
-      </div>
+
     </section>
 
     <!-- Container Slide -->
@@ -73,6 +70,19 @@
     >
       <i class="fas fa-home text-gray-700 group-hover:text-amber-600"></i>
     </button>
+    
+    <!-- Tombol Video Materi -->
+        <button
+          onclick="showVideo()"
+          id="btnVideo"
+          class="fixed top-5 left-5 bg-white/90 px-4 py-4 rounded-full shadow-lg hidden z-50 hover:bg-white transition-all group border border-white/20"
+        >
+          <i class="fas fa-video text-gray-700 group-hover:text-blue-600"></i>
+        </button>
+      </div>
+      <div class="absolute bottom-10 text-gray-500 animate-bounce">
+        <i class="fas fa-chevron-down text-2xl"></i>
+      </div>
 
     <!-- Musik -->
     <audio id="bgMusic" autoplay src="music/study.mp3" volume="0.40"></audio>
@@ -82,6 +92,15 @@
       class="fixed bottom-5 right-5 z-50 bg-white/90 p-3 rounded-full shadow-lg hover:bg-white transition-all group border border-white/20"
     >
       <i class="fas fa-volume-up text-gray-700 group-hover:text-amber-600"></i>
+    </button>
+
+    <!-- Tombol Video Materi -->
+    <button
+      onclick="showVideoMaterial()"
+      id="videoBtn"
+      class="fixed bottom-24 right-5 z-50 bg-white/90 p-3 rounded-full shadow-lg hover:bg-white transition-all group border border-white/20 hidden"
+    >
+      <i class="fas fa-video text-gray-700 group-hover:text-blue-600"></i>
     </button>
 
     <!-- Tombol Navigasi -->
@@ -115,5 +134,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <script src="script.js"></script>
+
+    <!-- Modal Video -->
+    <div
+      id="videoModal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"
+    >
+      <div class="bg-white rounded-lg p-4 w-full max-w-2xl mx-4">
+        <div class="flex justify-between items-center mb-3">
+          <h3 class="font-bold text-lg">Video Pembelajaran</h3>
+          <button
+            onclick="closeVideo()"
+            class="text-gray-500 hover:text-gray-700"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe
+            class="w-full h-64 md:h-96"
+            src="https://www.youtube.com/embed/Nu16eO1Qu88?si=udNWp9gvLnvufihL"
+            frameborder="0"
+            allowfullscreen
+
+        </div>
+      </div>
+    </div>
+    
   </body>
 </html>
